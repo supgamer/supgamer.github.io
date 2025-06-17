@@ -18,11 +18,10 @@
 
 header {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse; /* flips nav and typewriter */
   justify-content: center;
   align-items: center;
   padding: 60px 20px 40px;
-  background-color: #000;
   gap: 20px;
 }
 
@@ -44,9 +43,9 @@ header {
 
 
 nav {
-  text-align: center;
-  margin-bottom: 60px;
+  margin: 0;
 }
+
 
 
     nav button {
@@ -219,7 +218,7 @@ nav {
     </div>
     <nav>
       <button onclick="scrollToSection('about')">About Me</button>
-      <button onclick="scrollToSection('work')">Projects</button>
+      <button onclick="scrollToSection('projects')">Projects</button>
       <button onclick="scrollToSection('skills')">Skills</button>
       <button onclick="scrollToSection('faq')">FAQ</button>
     </nav>
