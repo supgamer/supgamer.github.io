@@ -16,23 +16,38 @@
       color: white;
     }
 
-    header {
-      text-align: center;
-      padding: 100px 20px 40px;
-    }
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px 40px;
+  background-color: #000;
+  gap: 20px;
+}
 
-    .typewriter h1 {
-      display: inline-block;
-      font-size: 3em;
-      border-right: 2px solid white;
-      white-space: nowrap;
-      overflow: hidden;
-    }
+.typewriter h1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.5em;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid white;
+  width: fit-content;
+  animation: blink-caret 0.7s step-end infinite;
+}
 
-    nav {
-      text-align: center;
-      margin: 30px 0;
-    }
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+
+nav {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
 
     nav button {
       background: none;
