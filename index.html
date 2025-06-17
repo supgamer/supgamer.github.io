@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SUP Portfolio</title>
+  <title>Sup Engine | Sup_Gamer's Portfolio</title>
   <style>
     body {
       margin: 0;
@@ -11,30 +11,25 @@
       color: #fff;
       scroll-behavior: smooth;
     }
+
     header {
       text-align: center;
       padding: 100px 20px 50px;
     }
+
     .typewriter h1 {
-      overflow: hidden;
-      border-right: .15em solid white;
-      white-space: nowrap;
-      animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
+      display: inline-block;
       font-size: 3em;
-    }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink-caret {
-      0%, 100% { border-color: transparent }
-      50% { border-color: white }
+      border-right: 2px solid white;
+      white-space: nowrap;
+      overflow: hidden;
     }
 
     nav {
       text-align: center;
       margin: 20px 0;
     }
+
     nav button {
       background: none;
       border: 2px solid white;
@@ -44,6 +39,7 @@
       cursor: pointer;
       transition: background 0.3s;
     }
+
     nav button:hover {
       background: white;
       color: black;
@@ -67,6 +63,7 @@
       margin: 40px 0;
       text-align: center;
     }
+
     .socials a {
       margin: 0 10px;
       font-size: 2em;
@@ -74,6 +71,7 @@
       text-decoration: none;
       transition: color 0.3s;
     }
+
     .socials a:hover {
       color: gray;
     }
@@ -85,18 +83,55 @@
       color: #777;
     }
   </style>
+
   <script>
+    // Loop typing effect for "Sup"
+    document.addEventListener("DOMContentLoaded", function () {
+      const el = document.getElementById("typing");
+      const text = "Sup";
+      let i = 0;
+      let isDeleting = false;
+      let delay = 150;
+
+      function typeLoop() {
+        if (isDeleting) {
+          el.textContent = text.substring(0, i--);
+        } else {
+          el.textContent = text.substring(0, i++);
+        }
+
+        if (!isDeleting && i === text.length) {
+          setTimeout(() => {
+            isDeleting = true;
+            typeLoop();
+          }, 5000); // Wait 5s before deleting
+          return;
+        }
+
+        if (isDeleting && i === 0) {
+          isDeleting = false;
+          setTimeout(typeLoop, 5000); // Wait 5s before typing again
+          return;
+        }
+
+        setTimeout(typeLoop, delay);
+      }
+
+      typeLoop();
+    });
+
     function scrollToSection(id) {
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
   </script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
   <header>
     <div class="typewriter">
-      <h1>I'm Sup</h1>
+      <h1><span id="typing"></span></h1>
     </div>
     <nav>
       <button onclick="scrollToSection('work')">See My Work</button>
