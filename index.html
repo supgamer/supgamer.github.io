@@ -84,46 +84,38 @@
     }
   </style>
 
-  <script>
-    // Loop typing effect for "Sup"
-    document.addEventListener("DOMContentLoaded", function () {
-      const el = document.getElementById("typing");
-      const text = "Sup";
-      let i = 0;
-      let isDeleting = false;
-      let delay = 150;
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const el = document.getElementById("typing");
+    const text = "Sup";
+    let i = 0;
+    let isDeleting = false;
 
-      function typeLoop() {
-        if (isDeleting) {
-          el.textContent = text.substring(0, i--);
-        } else {
-          el.textContent = text.substring(0, i++);
-        }
+    function typeLoop() {
+      el.textContent = text.substring(0, i);
 
-        if (!isDeleting && i === text.length) {
-          setTimeout(() => {
-            isDeleting = true;
-            typeLoop();
-          }, 5000); // Wait 5s before deleting
-          return;
-        }
-
-        if (isDeleting && i === 0) {
-          isDeleting = false;
-          setTimeout(typeLoop, 5000); // Wait 5s before typing again
-          return;
-        }
-
-        setTimeout(typeLoop, delay);
+      if (!isDeleting && i < text.length) {
+        i++;
+        setTimeout(typeLoop, 150);
+      } else if (isDeleting && i > 0) {
+        i--;
+        setTimeout(typeLoop, 100);
+      } else {
+        setTimeout(() => {
+          isDeleting = !isDeleting;
+          typeLoop();
+        }, 5000); // Wait 5s before switching between typing/deleting
       }
-
-      typeLoop();
-    });
-
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
-  </script>
+
+    typeLoop();
+  });
+
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
