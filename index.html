@@ -43,26 +43,44 @@ header {
 
 
 nav {
-  margin: 0;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
 
-    nav button {
-      background: none;
-      border: 2px solid white;
-      color: white;
-      padding: 10px 25px;
-      margin: 10px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-    }
+nav a:hover {
+  color: #fff;
+}
 
-    nav button:hover {
-      background: white;
-      color: black;
-    }
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
 
     .section {
       padding: 80px 20px;
@@ -174,6 +192,65 @@ nav {
         transform: translateY(0);
       }
     }
+    .resume-section {
+  animation: slideIn 1s ease-out;
+  background-color: #111;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.resume-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.resume-text {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.resume-link {
+  font-size: 1.2rem;
+  color: white;
+  border: 2px solid white;
+  padding: 12px 24px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  animation: pulseResume 2s infinite;
+}
+
+.resume-link:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px white;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseResume {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255,255,255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+  }
+}
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -217,11 +294,11 @@ nav {
       <h1><span id="typing"></span></h1>
     </div>
     <nav>
-      <button onclick="scrollToSection('about')">About Me</button>
-      <button onclick="scrollToSection('projects')">Projects</button>
-      <button onclick="scrollToSection('skills')">Skills</button>
-      <button onclick="scrollToSection('faq')">FAQ</button>
-    </nav>
+  <a href="#about">About Me</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#faq">FAQ</a>
+</nav>
   </header>
 
   <section class="section" id="about">
@@ -279,6 +356,14 @@ nav {
       <div class="skill">UI Scripting</div>
       <div class="skill">Advanced Scripter</div>
       <div class="skill">Basic UI Designer</div>
+      <div class="skill">Database Scripter</div>
+      <div class="skill">Ai expert</div>
+      <div class="skill">Project Manager</div>
+      <div class="skill">Client-Server Architecture</div>
+      <div class="skill">Handling Latency/Delays of the game</div>
+      <div class="skill">Basic discord bot dev</div>
+      <div class="skill">C++ Middle-level Programmer</div>
+      <div class="skill">Python Basic Programmer (Cpp better)</div>
     </div>
   </section>
 
@@ -301,7 +386,11 @@ nav {
       </div>
     </div>
   </section>
-
+  <section class="section resume-section">
+  <h2>My Resume</h2>
+  <p class="resume-text">If you're interested in my experience and qualifications in detail, you can view my resume here:</p>
+  <a class="resume-link" href="https://docs.google.com/document/d/19_L2dHbvzcW7iXYfQRO4aJDZRysO1jShAgw7WSf-1cU/edit?usp=sharing" target="_blank">View Resume</a>
+</section>
   <section class="socials">
     <a href="https://discord.com/users/711782727506067497" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
     <a href="https://www.youtube.com/@s_upp" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
