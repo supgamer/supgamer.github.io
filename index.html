@@ -1,164 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arithmetic Sequence Generator</title>
-    <style>
-        body {
-            font-family: 'Verdana', sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background: url("space_background.jpg") no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        input {
-            width: 180px;
-            padding: 12px;
-            margin: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            color: white;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-    
-        input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-    
-        input:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.6);
-            transform: scale(1.05);
-        }
-    
-        button {
-            padding: 10px;
-            margin: 8px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            background: #ff9800;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-    
-        button:hover {
-            background: #e68900;
-            transform: scale(1.05);
-        }
-    
-        .output-container {
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-    
-        .sigma {
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 15px;
-            animation: fadeIn 1s ease-in-out;
-        }
-        /* Remove number input spinners */
-input[type="number"] {
-    -moz-appearance: textfield;
-}
+  <meta charset="UTF-8">
+  <title>SUP Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #000;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    header {
+      text-align: center;
+      padding: 100px 20px 50px;
+    }
+    .typewriter h1 {
+      overflow: hidden;
+      border-right: .15em solid white;
+      white-space: nowrap;
+      animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
+      font-size: 3em;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      0%, 100% { border-color: transparent }
+      50% { border-color: white }
+    }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
+    nav {
+      text-align: center;
+      margin: 20px 0;
+    }
+    nav button {
+      background: none;
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    nav button:hover {
+      background: white;
+      color: black;
+    }
 
-    </style>    
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+      border-top: 1px solid #333;
+    }
+
+    iframe {
+      width: 90%;
+      max-width: 560px;
+      height: 315px;
+      margin: 20px 0;
+      border: none;
+    }
+
+    .socials {
+      margin: 40px 0;
+      text-align: center;
+    }
+    .socials a {
+      margin: 0 10px;
+      font-size: 2em;
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .socials a:hover {
+      color: gray;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #333;
+      color: #777;
+    }
+  </style>
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h2>🔥 Arithmetic Sequence Generator 🔥</h2>
-        <label>First Term (A):</label>
-        <input type="number" id="A" placeholder="Enter A"><br>
-        <label>Common Difference (D):</label>
-        <input type="number" id="D" placeholder="Enter D"><br>
-        <label>Stopping Value (L):</label>
-        <input type="number" id="L" placeholder="Enter L"><br>
-        <button onclick="generateSequence()">Generate Sequence</button>
-        <div class="output-container">
-            <div id="sequence-output"></div>
-            <div id="index-output"></div>
-            <div id="sigma-output" class="sigma"></div>
-        </div>
+
+  <header>
+    <div class="typewriter">
+      <h1>I'm Sup</h1>
     </div>
-    <script>
-        function generateSequence() {
-            let A = parseInt(document.getElementById("A").value);
-            let D = parseInt(document.getElementById("D").value);
-            let L = parseInt(document.getElementById("L").value);
-            
-            if (isNaN(A) || isNaN(D) || isNaN(L)) {
-                document.getElementById("sequence-output").innerText = "Please enter valid numbers!";
-                return;
-            }
-            
-            let sequence = [];
-            let indices = [];
-            let sum = 0;
-            let x = 1;
-            
-            if (D > 0) {
-                for (let H = A; H <= L; H += D) {
-                    sequence.push(H);
-                    indices.push(x);
-                    sum += H;
-                    x++;
-                }
-            } else if (D < 0) {
-                for (let H = A; H >= L; H += D) {
-                    sequence.push(H);
-                    indices.push(x);
-                    sum += H;
-                    x++;
-                }
-            } else {
-                document.getElementById("sequence-output").innerText = "D cannot be zero!";
-                return;
-            }
-            
-            let n = indices.length;
-            let sigmaEquation = `Σ (A + (x-1)D) from x=1 to ${n}`;
-            let sumText = ` ${sum}`;
-            
-            document.getElementById("sequence-output").innerText = `a(x) = (${sequence.join(", ")})`;
-            document.getElementById("index-output").innerText = `x = ${indices.join("  ")}`;
-            document.getElementById("sigma-output").innerText = `${sigmaEquation} → ${sumText}`;
-        }
-    </script>
+    <nav>
+      <button onclick="scrollToSection('work')">See My Work</button>
+      <button onclick="scrollToSection('contact')">Contact</button>
+      <button onclick="scrollToSection('more')">More</button>
+    </nav>
+  </header>
+
+  <section class="section" id="work">
+    <h2>Past Works</h2>
+    <p>Here are two projects I'm proud of!</p>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0" allowfullscreen></iframe>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Socials</h2>
+    <div class="socials">
+      <a href="https://discord.com/users/YOUR_ID" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+      <a href="https://www.youtube.com/@YOUR_CHANNEL" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </section>
+
+  <section class="section" id="more">
+    <h2>More About Me</h2>
+    <p>This section could include your resume, hobbies, or skills.</p>
+    <a href="https://your-link.com" target="_blank">
+      <button>Go to Full Resume</button>
+    </a>
+  </section>
+
+  <footer>
+    Made by Sup © 2025
+  </footer>
+
 </body>
 </html>
