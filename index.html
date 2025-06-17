@@ -82,8 +82,9 @@
       flex-direction: column;
       align-items: center;
       padding: 40px 0;
-      background: radial-gradient(#fff 1px, transparent 1px);
-      background-size: 20px 20px;
+      background-image: url('https://img.freepik.com/premium-vector/background-white-stars-black-background_7102-1693.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     .socials a {
@@ -112,11 +113,53 @@
       border-top: 1px solid #333;
       color: #777;
     }
+
+    .faq {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .faq-item {
+      background-color: #111;
+      border: 1px solid white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+      color: #fff;
+      font-size: 1.2em;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const el = document.getElementById("typing");
-      const text = "Sup";
+      const text = "Hey, I am Sup and I am a roblox developer!";
       let i = 0;
       let isDeleting = false;
 
@@ -158,21 +201,22 @@
       <button onclick="scrollToSection('about')">About Me</button>
       <button onclick="scrollToSection('work')">Projects</button>
       <button onclick="scrollToSection('skills')">Skills</button>
+      <button onclick="scrollToSection('faq')">FAQ</button>
     </nav>
   </header>
 
   <section class="section" id="about">
     <h2>About Me</h2>
     <p>
-      I'm Sup, a passionate developer and problem solver. I specialize in scripting complex systems, building user interfaces, and delivering clean, functional designs. Whether it's UI logic, back-end scripting, or front-end polishing, I strive for excellence in every line of code. My goal is to always keep learning and build tools that make people say "wow!"
+      <strong>I'm Sup</strong>, a <strong>passionate developer and problem solver</strong>. I specialize in scripting complex systems, building user interfaces, and delivering clean, functional designs. Whether it's UI logic, back-end scripting, or front-end polishing, I strive for excellence in every line of code. My goal is to always keep learning and build tools that make people say "wow!" </br> I am excellent in: Bug fixing, Creating systems logic, Creating User Interface Animation, and making ai fast the process of scripting (no delay at all!)
     </p>
   </section>
 
   <section class="section" id="work">
     <h2>Projects</h2>
     <p>Here are two projects I'm proud of!</p>
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0" allowfullscreen></iframe>
+    <iframe src="https://youtu.be/VPto6o1v5Nk?si=Y55EcXeMTasYJd0y" allowfullscreen></iframe>
+    <iframe src="https://youtu.be/B7wtVMklWOs?si=5obdxGALGrWlhaC1" allowfullscreen></iframe>
   </section>
 
   <section class="section" id="skills">
@@ -185,13 +229,33 @@
     </div>
   </section>
 
+  <section class="section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <h3>Q: Why choosing you over the others?</h3>
+        <p>A: I offer a lot of hidden features that maybe it is rare to find:<br>
+        In all plans I will use AI to make the project fast. I will also make sure I and the AI tools make the logic or designs at their best.
+        If I am scripting something related to the user interface, I will work on it as a scripter.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q: Do you use any frameworks, if not is your scripts easy to be set up and customize-able?</h3>
+        <p>A: I do not use any frameworks currently (I use normal scripting). I used to have a Roblox shop and used to create projects that are easy to be set up. My answer if my project is customize-able is yes.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q: When you can finish your project?</h3>
+        <p>A: According to the project. Deadline of any project for me is a month and of course this is the maximum time I can do a project, while it will be less than a month.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="socials">
-    <a href="https://discord.com/users/YOUR_ID" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
-    <a href="https://www.youtube.com/@YOUR_CHANNEL" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://discord.com/users/711782727506067497" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+    <a href="https://www.youtube.com/@s_upp" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
   </section>
 
   <footer>
-    Made by Sup © 2025
+    © (2025) All right reserved to owner of website s_up
   </footer>
 </body>
 </html>
