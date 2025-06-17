@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Sequence Generator</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: url("space_background.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        input {
+            width: 180px;
+            padding: 12px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    
+        input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+        }
+    
+        button {
+            padding: 10px;
+            margin: 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background: #ff9800;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+    
+        button:hover {
+            background: #e68900;
+            transform: scale(1.05);
+        }
+    
+        .output-container {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    
+        .sigma {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 15px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        /* Remove number input spinners */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+    </style>    
+</head>
+<body>
+    <div class="container">
+        <h2>🔥 Arithmetic Sequence Generator 🔥</h2>
+        <label>First Term (A):</label>
+        <input type="number" id="A" placeholder="Enter A"><br>
+        <label>Common Difference (D):</label>
+        <input type="number" id="D" placeholder="Enter D"><br>
+        <label>Stopping Value (L):</label>
+        <input type="number" id="L" placeholder="Enter L"><br>
+        <button onclick="generateSequence()">Generate Sequence</button>
+        <div class="output-container">
+            <div id="sequence-output"></div>
+            <div id="index-output"></div>
+            <div id="sigma-output" class="sigma"></div>
+        </div>
+    </div>
+    <script>
+        function generateSequence() {
+            let A = parseInt(document.getElementById("A").value);
+            let D = parseInt(document.getElementById("D").value);
+            let L = parseInt(document.getElementById("L").value);
+            
+            if (isNaN(A) || isNaN(D) || isNaN(L)) {
+                document.getElementById("sequence-output").innerText = "Please enter valid numbers!";
+                return;
+            }
+            
+            let sequence = [];
+            let indices = [];
+            let sum = 0;
+            let x = 1;
+            
+            if (D > 0) {
+                for (let H = A; H <= L; H += D) {
+                    sequence.push(H);
+                    indices.push(x);
+                    sum += H;
+                    x++;
+                }
+            } else if (D < 0) {
+                for (let H = A; H >= L; H += D) {
+                    sequence.push(H);
+                    indices.push(x);
+                    sum += H;
+                    x++;
+                }
+            } else {
+                document.getElementById("sequence-output").innerText = "D cannot be zero!";
+                return;
+            }
+            
+            let n = indices.length;
+            let sigmaEquation = `Σ (A + (x-1)D) from x=1 to ${n}`;
+            let sumText = ` ${sum}`;
+            
+            document.getElementById("sequence-output").innerText = `a(x) = (${sequence.join(", ")})`;
+            document.getElementById("index-output").innerText = `x = ${indices.join("  ")}`;
+            document.getElementById("sigma-output").innerText = `${sigmaEquation} → ${sumText}`;
+        }
+    </script>
+</body>
+</html>
